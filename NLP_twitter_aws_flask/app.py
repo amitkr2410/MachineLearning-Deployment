@@ -2,7 +2,7 @@ import pickle
 import os
 import sys
 from flask import Flask, render_template, request, jsonify
-from joblib import load 
+import serverless_wsgi
 import src.custom_function as customfunc
 
 ##Create flaskAPI instance
@@ -50,9 +50,10 @@ def NLP_twitter_sentiment(text):
     return pred 
 # ''' 
 
+def handler(event, context):
+    return serverless_wsgi.handle_request(app, event, context)
 
-
-if __name__ == "__main__":
-    app.run(debug=True, host='127.0.0.1', port=9000)
+#if __name__ == "__main__":
+#    app.run(debug=True)
     
 
