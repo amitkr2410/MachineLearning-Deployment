@@ -1,6 +1,0 @@
-numpy
-scikit-learn
-nltk
-fastapi
-mangum
-uvicorn
