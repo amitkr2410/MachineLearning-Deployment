@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py data/cell_samples_for_svm.csv data/train.csv  data/test.csv
+    deps:
+    - path: data/cell_samples_for_svm.csv
+      md5: e4cce497ae5d4191f2510170dc56c1bb
+      size: 20675
+    - path: src/preprocess.py
+      md5: ce32576e0653ad4bb09731dda2568edb
+      size: 2560
+    params:
+      params.yaml:
+        preprocess.seed: 4
+        preprocess.test_size: 0.2
+    outs:
+    - path: data/test.csv
+      md5: 3f6c0f67ac0f0aa7078752ea1ad9a2aa
+      size: 2923
+    - path: data/train.csv
+      md5: ce23df18fc8e73f8b1e62ea046bde3a2
+      size: 11409
