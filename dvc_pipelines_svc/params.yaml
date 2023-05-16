@@ -1,0 +1,11 @@
+preprocess:
+  seed: 4
+  test_size: 0.2
+train:
+  # linear, poly, rbf, sigmoid
+  # gamma is auto or scale
+  kernel: linear #
+  gamma: scale
+  c0: 3
+  poly_deg: 8
+

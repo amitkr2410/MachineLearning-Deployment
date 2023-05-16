@@ -1,0 +1,51 @@
+stages:
+  preprocess:
+    cmd: python src/preprocess.py data/cell_samples_for_svm.csv data/train.csv  data/test.csv
+    deps:
+    - data/cell_samples_for_svm.csv
+    - src/preprocess.py
+    params:
+    - preprocess.seed
+    - preprocess.test_size
+    outs:
+    - data/train.csv
+    - data/test.csv  
+
+  train:
+    cmd: python src/train.py data/train.csv model/model.pickle
+    deps:
+    - data/train.csv 
+    - src/train.py
+    params:
+    - train.kernel
+    - train.gamma
+    - train.c0
+    - train.poly_deg
+    outs:
+    - model/model.pickle
+  evaluate:
+    cmd: python src/evaluate.py model/model.pickle  data 
+    deps:
+    - data
+    - model/model.pickle
+    - src/evaluate.py
+    outs:
+    - eval/live/plots:
+        cache: false
+    metrics:
+    - eval/live/metrics.json:
+        cache: false
+plots:
+  - ROC:
+      template: simple
+      x: fpr
+      y:
+        eval/live/plots/sklearn/roc_train.json: tpr
+        eval/live/plots/sklearn/roc_test.json: tpr
+  - Confusion-Matrix:
+      template: confusion
+      x: actual
+      y:
+        eval/live/plots/sklearn/cm_train.json: predicted
+        eval/live/plots/sklearn/cm_test.json: predicted
+
