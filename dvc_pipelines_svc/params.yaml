@@ -6,6 +6,6 @@ train:
   # gamma is auto or scale
   kernel: linear #
   gamma: scale
-  c0: 3
+  c0: 20
   poly_deg: 8
 

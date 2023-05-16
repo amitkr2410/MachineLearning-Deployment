@@ -1,0 +1,62 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py data/cell_samples_for_svm.csv data/train.csv  data/test.csv
+    deps:
+    - path: data/cell_samples_for_svm.csv
+      md5: e4cce497ae5d4191f2510170dc56c1bb
+      size: 20675
+    - path: src/preprocess.py
+      md5: 9939ba7429d13ef912df7e75c6b1857c
+      size: 2678
+    params:
+      params.yaml:
+        preprocess.seed: 4
+        preprocess.test_size: 0.2
+    outs:
+    - path: data/test.csv
+      md5: a7e437703330ebec8d33297051ac8f2c
+      size: 2923
+    - path: data/train.csv
+      md5: cbe5a128c4486e0f356e91db4feb3c81
+      size: 11409
+  train:
+    cmd: python src/train.py data/train.csv model/model.pickle
+    deps:
+    - path: data/train.csv
+      md5: cbe5a128c4486e0f356e91db4feb3c81
+      size: 11409
+    - path: src/train.py
+      md5: 9fd246691d413264792bb3146db41275
+      size: 1370
+    params:
+      params.yaml:
+        train.c0: 20
+        train.gamma: scale
+        train.kernel: linear
+        train.poly_deg: 8
+    outs:
+    - path: model/model.pickle
+      md5: 440d7c2ed4e9dd685a80a8ef892fff2a
+      size: 4767
+  evaluate:
+    cmd: python src/evaluate.py model/model.pickle  data
+    deps:
+    - path: data
+      md5: 0b49480c3b5fb0eb40ec6acd2bf56fac.dir
+      size: 35028
+      nfiles: 4
+    - path: model/model.pickle
+      md5: 440d7c2ed4e9dd685a80a8ef892fff2a
+      size: 4767
+    - path: src/evaluate.py
+      md5: c0c41031d3bb17a98fefcf84c8057ff5
+      size: 1820
+    outs:
+    - path: eval/live/metrics.json
+      md5: c2b9dc6575ebbbceb55e78a8fa013a54
+      size: 194
+    - path: eval/live/plots
+      md5: 406f3b4f716fb11ff5a66182a3ce2cf1.dir
+      size: 57688
+      nfiles: 4

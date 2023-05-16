@@ -1,5 +1,6 @@
 
 #run experiments
+dvc init --subdir
 dvc repro
      git add dvc.lock data/.gitignore
 dvc exp run -S train.c0=1
