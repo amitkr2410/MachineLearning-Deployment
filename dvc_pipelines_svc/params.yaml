@@ -1,5 +1,0 @@
-preprocess:
-  seed: 4
-  test_size: 0.2
-  
-
