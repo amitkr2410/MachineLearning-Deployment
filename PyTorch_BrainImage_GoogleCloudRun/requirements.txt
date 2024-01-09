@@ -1,0 +1,9 @@
+numpy==1.24.3
+#nltk==3.8.1
+flask==2.3.2
+#serverless_wsgi==3.0.2
+torchvision==0.15.2 
+torch==2.0.1
+pathlib==1.0.1
+pillow==9.4.0
+gunicorn==21.2.0
