@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      
+      .slider input[type="range"] {
+        width: 100px;
+        height: 10px;
+        border: none;
+        outline: none;
+        margin-top:10%;
+        -webkit-transform:rotate(0deg);
+        /* -moz-transform:rotate(90deg);
+        -o-transform:rotate(90deg);
+         transform:rotate(270deg); */
+      }
+      .centered {
+        position: relative;
+        text-align: center;
+        display: grid;
+        place-items: center;
+        color: white;
+      }
+
+      .header {
+        color: black;
+      }
+
+      p {
+        color: #111;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 20px;
+        line-height: 24px;
+        margin: 0 0 24px;
+        text-justify: inter-word;
+      }
+
+      h1 {
+        color: #111;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 36px;
+        font-weight: bold;
+        letter-spacing: -1px;
+        line-height: 1;
+        text-align: center;
+      }
+
+      #demo {
+        color: #111;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 22px;
+        line-height: 24px;
+        margin: 0 0 24px;
+        text-justify: inter-word;
+      }
+
+      .form-div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="centered">
+        <!-- Project One starts Sentiment analysis:-->
+        <h1 class="header" style="color:blue;">Welcome to Amit Kumar's Machine Learning 
+          powered Apps <br> (on Google Kubernetes Engine )</h1>
+      </div>    
+        <br> <br>
+        <div class="text-center text-white"> 
+          <title>Amit GoogleCloud Apps</title>
+        </div>
+
+      <!-- Project 1st starts here Brain tumor CT-scan images:-->
+      <br />
+      <br />
+      
+      <h1 class="header" style="text-align:left;">1. Brain Tumor detection App using PyTorch </h1>
+      <p class="desc">
+        Choose an image and a ML model from below, then click on the process button and wait for the prediction.
+      </p>
+      
+      <!-- new code here -->
+      <!-- new code ends here-->
+
+      <h3 class="header" style="text-align:left;"> Step-1: Select one of the CT scan image of brain 
+      </h3> <br> 
+
+      <form  method="POST" onSubmit="return validate();" class="form2">
+        <!-- <div class="form-div"> -->
+          <fieldset>
+            <label>
+                <input type="radio" name="select_cnn_image" value="Test1_yes">
+                <img src="/static/cnn_image/Test1_yes.jpg" width="120" alt="Test1">
+            </label> &emsp; &emsp; 
+            
+            <label>
+                <input type="radio" name="select_cnn_image" value="Test2_yes">
+                <img src="/static/cnn_image/Test2_yes.jpg" width="120" alt="Test2">
+            </label> &emsp; &emsp; 
+            
+            <label>
+                <input type="radio" name="select_cnn_image" value="Test3_no">
+                <img src="/static/cnn_image/Test3_no.jpg" width="120" alt="Test3">
+            </label> &emsp; &emsp; 
+            
+            <label>
+                <input type="radio" name="select_cnn_image" value="Test4_no">
+                <img src="/static/cnn_image/Test4_no.jpg" width="120" alt="Test4">
+            </label> &emsp; &emsp; 
+            <label>
+              <input type="radio" name="select_cnn_image" value="Test5_no">
+              <img src="/static/cnn_image/Test5_no.jpg" width="120" alt="Test5">
+          </label>  
+        </fieldset>
+          <!-- 
+          <select name="select_cnn"> 
+            <option value="None">Select Image</option>
+            {% for BrainImageName in BrainImagesList %}
+            <option value="{{BrainImageName}}"> {{BrainImageName}} </option>
+            {% endfor %}
+          </select> &emsp; &emsp; 
+          &emsp; 
+        -->
+        <br> 
+        <h3 class="header" style="text-align:centre;"> Step-2: Select ML model 
+        </h3> &emsp; &emsp; &emsp;
+        <fieldset>
+          <label>
+              <input type="radio" name="select_cnn_model" value="only_attention">
+               Self Attention with positional encoding 
+          </label> &emsp; &emsp; 
+          <label>
+            <input type="radio" name="select_cnn_model" value="vgg16_pretrained_false">
+            VGG16 
+        </label> &emsp; &emsp; 
+        <label>
+          <input type="radio" name="select_cnn_model" value="cnn_with_attention">
+          4 layers CNN + Self Attention with positional encoding
+      </label> &emsp; &emsp; 
+      <label>
+        <input type="radio" name="select_cnn_model" value="cnn_4layers_custom">
+        4 layers CNN
+    </label>
+          </fieldset>
+          <!-- 
+          <select name="select_cnn_model">
+            <option value="None">Select Model architecture</option>
+            {% for NNModel in NNModelList %}
+            <option value="{{NNModel}}"> {{NNModel}} </option>
+            {% endfor %}
+          </select> 
+          -->
+        
+          <br> <br>
+          <h3 class="header" style="text-align:centre;"> Step-3: Click 'process' button to make prediction 
+          </h3> <br> 
+          &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 
+          <button type="submit" name='submit_cnn' class="btn btn-outline-primary" onclick="this.form.submit();">
+            Process
+          </button>
+        
+      </form>
+      <br> <br>
+      {% if variableoutputBT %}
+        <!-- <div> -->
+          <p id='cnn-result' style="color:blue;font-size:20px;">
+          <img src="{{ variableinputBT }}" alt="Brain Tumor Image" width="100" height="100" The image is good />
+          Tumor result: {{  variableoutputBT}} 
+          </p>
+          <p style="text-align:left;font-size:20px;"> 
+
+            The model architecture behind the prediction: 
+            <br> <br>
+              {% autoescape false %}
+              {{variablemodeldetails}}
+              {% endautoescape %}
+          </p>
+          <br> <br>
+          ==============================================================================================================
+          <div class="centered">
+          <h2 class="header"> To learn more about the project, read further</h2>
+          </div>    
+          ==============================================================================================================
+          <br> <br>
+          <h3> Goal: </h3>
+          <p>  The goal of this project is to build CT scan tumor detection app using 
+           self-attention module and compare the performance with traditional 
+            VGG16 architecture. We deploy the app on the Google Cloud Run, 
+            Google Kubernetes Engine and AWS platform to explore technical 
+            challenges involved in deploying PyTorch model on AWS and Google Cloud servers.  
+          </p>
+
+          <h3> Stages involved in building end-to-end applications: </h3>
+          <p> (1) Define data pipelines and input parameter file <br>
+            (2) Data download  <br>
+            (3) Preprocessing and Data Augmentation  <br>
+            (4) Define model  <br>
+            (5) Train the model  <br>
+            (6) Model validation  <br>
+            (7) Save the model and run parameters  <br>
+            (8) Host the model on the Cloud
+          </p>
+          <h3> Data Source: </h3>
+          <p> The input labelled data was downloaded from the public website here:
+            <a href="https://www.kaggle.com/datasets/ahmedhamada0/brain-tumor-detection"> Datasets with CT scan images of brain</a>
+             </p>
+          <!-- <h3> Data Augmentation: </h3> -->
+          <p> </p>
+          <h3> Model: </h3>
+          <p> We explored four types of architectures in this study <br>
+            (1) Image Patching + Self Attention module with positional encoding <br>
+            (2) VGG16 architecture <br>
+            (3) Custom 4-layer CNN + Self Attention module with positional encoding <br>
+            (4) Custom 4-layer CNN <br>
+            We wrote these models from scratch using the PyTorch library inheriting the <strong> nn.Module class </strong> 
+            and overriding the base class functions. 
+            <br> <br>  
+            The vision transformer was first introduced by Dosovitskiy and his colleagues 
+            from the Google Research Team in this paper 
+            <a href="https://arxiv.org/abs/2010.11929">"An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale
+            " </a> in 2020 and has garnered wider attention from the machine learning community. In this project, we build a model based on self attention with positional encoding and apply to image data.  
+            The main idea behind the vision transformer is to represent an image as a sequence of tokens. 
+            Each token represents a feature vector extracted from a patch of the image.  
+            These feature vectors are fed into transformer blocks, which consist of the following: 
+            Embedding layer, positional encoding, multi-head self-attention, feedforward neural 
+            network, and layer normalization.
+            However, in this project, we solely focus on self attention module
+            with positonal encoding. <br>
+            <h3>The model architecture for self-attention module with position encoding
+            is shown below: </h3>
+             
+              <img src="/static/PytTorch_Model_basic_VIT.png" alt="Vit with self attention and position encoding"
+              height="800" The image />
+              <br> <br> <br>
+            <h3>The traditional VGG16 model architecture and other smaller architectures explored are
+                shown below: </h3>
+            <p id='cnn-precision'>    
+              <img src="/static/PytTorch_Model_VGG16_hybrid_VIT.png" alt="VGG16 model" 
+               height="800" The image  />
+            </p>
+          <p>  
+          The VGG16 model was developed by <a href="https://arxiv.org/abs/1409.1556">
+            "Simonyan and Zisserman" </a>   [Visual Geometry Group, 2015] at the University of Oxford. 
+          The model utilizes very small (3x3) convolution filter but 
+          very deep network consisting of 13 convolution layers followed by 
+          3 fully connected layers. 
+          </p>
+          </p>
+          <h3> Results: </h3>
+          <p> 
+            In this work, we used <strong> Google Compute Engine T4 GPU </strong>
+              to run the model and 
+            optimize the hyperparameters. We explored hyper-parameters: <br> 
+                            Learning rate = {0.01, 0.001, 0.0001, 0.00001} <br>
+                            Weight decay = {0.002} <br>
+
+            The self-attention model with positional encoding gives excellent results
+            and performs very similar to the VGG16 model with an accuracy of 95-97%.
+          </p>
+          <p id='cnn-precision'>    
+            <img src="/static/PytTorch_Model_Result.png" alt="Model results" 
+             height="500" The image  />
+          </p>
+          <h3> View GitHub source codes: </h3>
+          (0) Training the model:
+          <a href="https://github.com/amitkr2410/MachineLearning/tree/main/PyTorch_BrainTumor">  
+            Create data pipelines in PyTorch and train the model </a>
+          <br>
+          (1) Host on Google Cloud Run:
+          <a href="https://github.com/amitkr2410/MachineLearning-Deployment/tree/main/PyTorch_BrainImage_GoogleCloudRun">  
+            Code to Host PyTorch app on Google Cloud Run </a>
+          <br>
+          (2) Host on Google Kubernetes Engine:
+          <a href="https://github.com/amitkr2410/MachineLearning-Deployment/tree/main/PyTorch_BrainImage_GoogleKubernetes">  
+            Code to Host PyTorch app on Google Kubernetes </a>
+          <br>
+          (3) Host on AWS Cloud server using Lambda function: 
+          <a href="https://github.com/amitkr2410/MachineLearning-Deployment/tree/main/PyTorch_BrainImage_AWS_Lambda">  
+            Code to Host PyTorch app on AWS Cloud </a>    
+          <br> <br> <br>    
+            ==============================================================================================================
+            <div class="centered">
+            <h3 class="header"> Thanks for reading, hope it's helpful! </h3>
+            </div>    
+            ==============================================================================================================
+    
+        <!-- </div> -->
+      {% endif %}
+        <!-- Project 1st ends here -->
+
+    <!-- Project 2nd ends here -->
+    <br> </br>
+    <!-- Project-5 -->
+    <br> <br> <br> <br>
+    
+    <!-- End-->
+
+      
+    </div>
+  </body>
+</html>
