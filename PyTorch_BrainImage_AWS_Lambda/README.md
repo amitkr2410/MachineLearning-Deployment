@@ -76,12 +76,12 @@ Now, also run the following from terminal to authenticate **ecr-public**:
       --password-stdin public.ecr.aws
 
 
-### 2. Flask.app, Requirement.txt, Dockerfile, and index.html
+### 2. Flask.app, Requirements.txt, Dockerfile, and index.html
 There are three main files that you would need to write to dockerize the package and host the web app:
 
 	flask.app: Create custom HTTP server using a web framework like Flask and integrate html and ML model.
 	
-    requirement.txt: To specify/install packages required for ML model and Flask application
+    requirements.txt: To specify/install packages required for ML model and Flask application
     
     Dockerfile: file to build docker container
     
@@ -119,7 +119,7 @@ It should download four model files inside directory "final_model/" :
 	
 
 
-We will build the docker image using the base image from **public.ecr.aws/lambda/python:3.10**. Most of time users run into compatitbity issues with version of python to the python packgae specified in **requirement.txt**. So make sure they are compatible with each other.
+We will build the docker image using the base image from **public.ecr.aws/lambda/python:3.10**. Most of time users run into compatitbity issues with version of python to the python packgae specified in **requirements.txt**. So make sure they are compatible with each other.
 
 
 ### 3. (on local machine) Build the docker image locally
