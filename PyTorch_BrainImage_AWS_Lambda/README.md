@@ -76,7 +76,7 @@ Now, also run the following from terminal to authenticate **ecr-public**:
       --password-stdin public.ecr.aws
 
 
-### 2. Flask.app, Requirement.txt Dockerfile
+### 2. Flask.app, Requirement.txt, Dockerfile, and index.html
 There are three main files that you would need to write to dockerize the package and host the web app:
 
 	flask.app: Create custom HTTP server using a web framework like Flask and integrate html and ML model.
@@ -84,6 +84,11 @@ There are three main files that you would need to write to dockerize the package
     requirement.txt: To specify/install packages required for ML model and Flask application
     
     Dockerfile: file to build docker container
+    
+    /static/index.html: html code with css decorator to publish the web app.
+    
+    /templates/: A directory to store images and use them to host on the web app.
+    
     
     Notice, the code is slightly different compared to one used in Google Cloud Deployment due "handler function"** requirement in **AWS ECR and Lambda function.
     We will be using "serverless_wsgi" here.
