@@ -3,6 +3,8 @@
 ### Goal:
 The goal of this project is to build CT scan tumor detection app using **self-attention module** and compare the performance with traditional **VGG16** architecture. We deploy the app on the **Google Cloud Run**, **Google Kubernetes Engine** and **AWS platform** to explore technical challenges involved in deploying PyTorch model on AWS and Google Cloud servers.
 
+### To access the web app, click here:
+[PyTorch based WebApp for BrainTumor detection on Google Kubernetes](http://34.148.10.95:5000)
 
 ### Instructions on how to host PyTorch app on the Google Kubernetes Engine
 
