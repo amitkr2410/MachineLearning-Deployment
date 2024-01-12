@@ -112,7 +112,7 @@ It should download four model files inside directory "final_model/" :
 We will build the docker image using the base image **python:3.10** . Most of time users run into compatitbity issues with version of python to the python packgae specified in **requirements.txt**. So make sure they are compatible with each other.
 
    
-### 3. (on local machine) Build the docker image locally
+### 4. (on local machine) Build the docker image locally
 
 Note, the command to create and upload the docker image to **Google Artifact repository** will be same regardless where you want to host the image using **Google Cloud Run** or **Google Kubernetes Engine**. 
 
@@ -124,7 +124,7 @@ Let's go ahead and execute the following command:
 
 To read more visit here: [https://cloud.google.com/artifact-registry/docs/docker/pushing-and-pulling](https://cloud.google.com/artifact-registry/docs/docker/pushing-and-pulling)
     
-### 4. (on local machine) Testing the built image locally to make sure things are working properly before pushing to Google Cloud
+### 5. (on local machine) Testing the built image locally to make sure things are working properly before pushing to Google Cloud
     docker run -it   -p 5000:5000  --name gcp_instance gcp-private
     
     where 5000:5000 specify the port number for gunicorn server and flask app server
@@ -141,14 +141,14 @@ Also, to test the app locally one can run the following at the terminal:
 and open the localhost url: [http://127.0.0.1:5000](http://127.0.0.1:5000) from the web browser. 
 
 
-### 7. (on local machine) Tag the docker image to be uploaded to the Google Artifact registry:
+### 6. (on local machine) Tag the docker image to be uploaded to the Google Artifact registry:
 
     docker tag gcp-private  us-east1-docker.pkg.dev/numeric-pilot-409621/pytorch-braintumor/gcpimage
     docker tag ${SOURCE-IMAGE} ${LOCATION-docker.pkg.dev/PROJECT-ID/REPOSITORY/IMAGE:TAG}
     
 where **numeric-pilot-409621** is the name of **PROJECT-ID**, and **gcpimage** is the name of repository created in the begining.
 
-### 8. (on local machine) Push the image to Google Artifact registry:
+### 7. (on local machine) Push the image to Google Artifact registry:
 
 	   docker push us-east1-docker.pkg.dev/numeric-pilot-409621/pytorch-braintumor/gcpimage
    
@@ -156,7 +156,7 @@ where **numeric-pilot-409621** is the name of **PROJECT-ID**, and **gcpimage** i
 
 
 
-### 9. When you push an image, it is stored in the specified repository "pytorch-braintumor".
+### 8. When you push an image, it is stored in the specified repository "pytorch-braintumor".
 After pushing your image, you can
 go to the Google Cloud console to view the image:
 [https://console.cloud.google.com/artifacts/](https://console.cloud.google.com/artifacts/)
@@ -170,8 +170,8 @@ Alternatively, you can run the gcloud command to view the image's tags and autom
               
         gcloud artifacts docker images list us-east1-docker.pkg.dev/numeric-pilot-409621/pytorch-braintumor/gcpimage
 
-### 7. Next, we will use "Google Cloud Run" service to host the app:
-7(a).1 Open **"Cloud Run"** by using the following link:  [https://cloud.google.com/run](https://cloud.google.com/run) 
+### 9. Next, we will use "Google Cloud Run" service to host the app:
+9(a).1 Open **"Cloud Run"** by using the following link:  [https://cloud.google.com/run](https://cloud.google.com/run) 
 
 .2 Now, click on **"Create Service"** on the **"Cloud Run"** page.
 
