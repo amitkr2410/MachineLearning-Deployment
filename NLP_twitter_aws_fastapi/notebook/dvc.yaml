@@ -1,8 +1,0 @@
-stages:
-  run_notebook_stages:
-    cmd: papermill NLP_Sentiment.ipynb
-    deps:
-      - NLP_Sentiment.ipynb
-    outs:
-      - CountVectorizer.pickle
-      - finalmodel.pickle
