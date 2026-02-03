@@ -7,23 +7,24 @@ The goal of repositories **[amitkr2410/MachineLearning](https://github.com/amitk
 
 The goal of this project is to build CT scan tumor detection app using **self-attention module** and compare the performance with traditional **VGG16** architecture. We deploy the application on **Google Cloud Run**. To access the web app, click here:
 
-[PyTorch based WebApp for BrainTumor detection on Google Cloud Run](https://gcpimagee-rffjbusgsa-ue.a.run.app/)
+[PyTorch based WebApp for BrainTumor detection on Google Cloud Run](https://github.com/amitkr2410/MachineLearning-Deployment/tree/main/PyTorch_BrainImage_GoogleCloudRun)
+(Contact to view the interactive app.)
 
 ### 2. PyTorch Brain Tumor image detection app on AWS server
 
-The goal of this project is to build CT scan tumor detection app using **self-attention module** and compare the performance with traditional **VGG16** architecture. We deploy the application on **AWS server** using AWS ECR and AWS Lambda. To access the web app, click here:
+The goal of this project is to build CT scan tumor detection app using **self-attention module** and compare the performance with traditional **VGG16** architecture. We deploy the application on **AWS server** using AWS ECR and AWS Lambda. To access the web files, click here:
 
-[PyTorch based WebApp for BrainTumor detection on AWS Cloud](https://iecusrbelq4pr5zjmdlsbgzbvy0kwait.lambda-url.us-east-1.on.aws/)
+[PyTorch based WebApp for BrainTumor detection on AWS Cloud](https://github.com/amitkr2410/MachineLearning-Deployment/tree/main/PyTorch_BrainImage_AWS_Lambda)
 
 
 ### 3. PyTorch Brain Tumor image detection app on Google Kubernetes Engine
 
 The goal of this project is to build CT scan tumor detection app using **self-attention module** and compare the performance with traditional **VGG16** architecture. We deploy the application on **Google Kubernetes Engine** . To access the web app, click here:
 
-[PyTorch based WebApp for BrainTumor detection on Google Kubernetes](http://34.148.10.95:5000/)
+[PyTorch based WebApp for BrainTumor detection on Google Kubernetes](https://github.com/amitkr2410/MachineLearning-Deployment/tree/main/PyTorch_BrainImage_GoogleKubernetes)
 
 ### 4. Mini projects deployed on AWS server:
-[AWS Web APP Machine Learning](https://uw44cshh4a23jlvucfhjbyllye0lvsfb.lambda-url.us-east-1.on.aws)
+[AWS Web APP Machine Learning](Contact to view the interactive app)
 
 ### 5. Miscellaneous projects
 
@@ -35,7 +36,7 @@ The goal of this project is to build CT scan tumor detection app using **self-at
 		                        server using flask, docker, AWS ECR,
 		                        and AWS lambda function.
 
-### **Personal Homepage:  [Amit's Personal HomePage](https://tfzfmiug4if622cp6ml7dlqt2e0njauz.lambda-url.us-east-1.on.aws/)
+### **Personal Homepage:  [Amit's Personal HomePage]()
 
 
 

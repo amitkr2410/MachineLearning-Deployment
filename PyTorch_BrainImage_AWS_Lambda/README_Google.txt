@@ -29,4 +29,4 @@ Grant permissions to the account that will connect with the repository.
 The Cloud Build default service account has permissions to push to and pull from Artifact Registry repositories in the same Google Cloud project.
 The default service account for Compute Engine, Cloud Run, and Google Kubernetes Engine has permissions to pull from Artifact Registry repositories in the same Google Cloud project.
 If you are using a Docker client to push and pull images, configure authentication to Artifact Registry.
-Learn about pushing and pulling images.   
+Learn about pushing and pulling images.   ###

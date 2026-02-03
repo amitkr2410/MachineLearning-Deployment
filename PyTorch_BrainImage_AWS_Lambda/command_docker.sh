@@ -1,6 +1,5 @@
 
-
-#To remove all dangling images and weired apt-get cache issues
+#To remove all dangling images and weired apt-get cache issues:
 docker system prune   
 
 #To build docker image and given name 'matrix'

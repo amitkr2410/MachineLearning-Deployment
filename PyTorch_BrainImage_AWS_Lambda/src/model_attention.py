@@ -1,4 +1,4 @@
-#Model definition for self-attention with positional encoding
+#Model definition for self-attention with positional encoding:
 import torchvision
 import torch
 import torch.nn as nn

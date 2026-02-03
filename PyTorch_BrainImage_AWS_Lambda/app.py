@@ -1,4 +1,4 @@
-#Flask application
+#Flask application with serverless_wsgi: a Serverless Framework plugin 
 # It's primary function is to host serverless application
 # In this code, we integrate Flask app with html and css elements together
 # to  create aesthetically beautiful application
@@ -48,7 +48,7 @@ def handler(event, context):
     return serverless_wsgi.handle_request(app, event, context)
 
 #if __name__ == "__main__":
-#     app.run(host='0.0.0.0', port=5000, debug=True)
+#     app.run( debug=True)
 #    app.run(host='0.0.0.0', port=5000, debug=True)
 
 

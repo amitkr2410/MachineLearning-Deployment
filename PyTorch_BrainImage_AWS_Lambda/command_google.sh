@@ -1,3 +1,4 @@
+#Instruction to host push docker image in Google Cloud/Google Kubernetes Engine API
 IMAGE_URI=LOCATION-docker.pkg.dev/PROJECT-ID/REPOSITORY/IMAGE:TAG
 us-east1-docker.pkg.dev/numeric-pilot-409621/pytorch-braintumor/gcpimage
 docker build -f Dockerfile -t ${IMAGE_URI} ./

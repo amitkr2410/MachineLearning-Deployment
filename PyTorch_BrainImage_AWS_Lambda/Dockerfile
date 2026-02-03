@@ -1,4 +1,4 @@
-#For AWS: Create aws lambda docker container image with my python packages
+#For AWS: Create aws lambda docker container image with python packages
 FROM public.ecr.aws/lambda/python:3.10
 # For Google's Kubernetes or Cloud Run
 #FROM python:3.10

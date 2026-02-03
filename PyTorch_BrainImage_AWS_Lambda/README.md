@@ -18,8 +18,10 @@ Following the link above you would create:
 1. **root** user account, setup multi-factor authentication by downloading **Authenticator** app on phone. You do not need to create **access key** for **root** user account.
 2. Create **IAM Admin user** account and attach policy **AdministratorAccess**.
 3. Create **IAM regular user account** and attach policies: **AWSLambda_FullAccess**, **AmazonElasticContainerRegistryPublicFullAccess**, **AmazonEC2FullAccess**,  
-**AmazonEC2ContainerRegistryFullAccess** 
-4. Create **access key** and **secret key** for **IAM user account** and store some where safe in your local machine. 
+**AmazonEC2ContainerRegistryFullAccess**, **AWSBillingReadOnlyAccess**, **AWSLambdaBasicExecutionRole**
+4. Activate "IAM user and role access to Billing information" by going to tab "Billing and Cost Management
+".
+5. Create **access key** and **secret key** for **IAM user account** and store some where safe in your local machine. 
 
 
 ### 0.2 Now, for the rest of the exercies, we will loggin with IAM user account and create various AWS features. Make sure for this exercise you select one region as server location, say N Virginia or us-east-1 and use it for all services. Having multiple AWS serviecs with multiple server locations can incur additional charges. 
@@ -124,7 +126,7 @@ We will build the docker image using the base image from **public.ecr.aws/lambda
 
 ### 3. (on local machine) Build the docker image locally
 
-Now, it's time to build docker image to package entire machinery containing model files and neccessary packages. Let's choose **aws-private** as the name of the container image.
+Now, it's time to build docker image to package entire machinery containing model files and neccessary packages. Let's choose **aws-private** as the name of the container image. Note, AWS Lambda Function supports a maximum uncompressed docker image size of 10 GB; otherwise, lambda function will throw an error message saying "image is not valid".
 
     docker build -t ${SOURCE-IMAGE}$  .
     docker build -t aws-private  .
@@ -172,6 +174,8 @@ Once the Lambda function is created, you will see the following:
 
 ![alt text](images/function_creation_done.png)
 
+Note, AWS Lambda Function supports a maximum uncompressed docker image size of 10 GB; otherwise, lambda function will throw an error message saying "image is not valid".
+
 Now, click on **"Configuration"** and **"Edit"** and fill:
 
       "Memory" = 2.5GB
@@ -187,6 +191,11 @@ Now, click on **"Configure Function URL"** and write:
       "ivoke mode" = Buffered
       "Configure cross-origin resource sharing (CORS)"
        click 'save'
+Note, if the application requires some libraries whose path needs to be specified, one can do it by editing "Environment Variables" tab:
+For instance, text data "such as in Sentiment analysis app" uses NLTK libraries which can be sepcified as:
+     "Key=NLTK_DATA", "Value=/var/task/nltk_data"
+     For "poppler_path" libraries for pdf2image conversion, as done in "resume classification app", we do the following:
+     "Key=poppler_path"	 and "Value=/var/task/poppler-utils-0.1.0/bin"
        
 Now, click on **"Test event"**: 
 

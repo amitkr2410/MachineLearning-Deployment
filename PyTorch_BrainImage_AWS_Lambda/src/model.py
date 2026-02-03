@@ -1,4 +1,4 @@
-#PyTorch model definition for VGG16 architectures and 4 layers CNN model.
+#PyTorch model definition for VGG16 architectures and 4 layers CNN model:
 import torchvision
 import torch
 import torch.nn as nn

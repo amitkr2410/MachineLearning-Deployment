@@ -1,4 +1,4 @@
-#Flask application
+#Flask application on gcp
 # It's primary function is to host serverless application
 # In this code, we integrate Flask app with html and css elements together
 # to  create aesthetically beautiful application

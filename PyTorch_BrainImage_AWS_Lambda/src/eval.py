@@ -1,4 +1,4 @@
-#Code to process the input image file and use the ML model to predict the status of tumor
+#Code to process the input image file and use the ML model to predict the status of tumor:
 #import numpy as np
 import torch
 from torch import nn
