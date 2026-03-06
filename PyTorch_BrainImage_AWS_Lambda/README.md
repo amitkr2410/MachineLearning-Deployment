@@ -187,7 +187,7 @@ Now, click on **"Configuration"** and **"Edit"** and fill:
 Note, the chosen IAM service-role can't be associated with another Lambda function.
       
 Now, click on **"Configure Function URL"** and write:
-
+      "Auth Type" = None   
       "ivoke mode" = Buffered
       "Configure cross-origin resource sharing (CORS)"
        click 'save'
