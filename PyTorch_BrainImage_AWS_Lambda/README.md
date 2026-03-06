@@ -187,13 +187,15 @@ Now, click on **"Configuration"** and **"Edit"** and fill:
 Note, the chosen IAM service-role can't be associated with another Lambda function.
       
 Now, click on **"Configure Function URL"** and write:
-      "Auth Type" = None   
+
+     "Auth Type" = None   
       "ivoke mode" = Buffered
       "Configure cross-origin resource sharing (CORS)"
        click 'save'
 Note, if the application requires some libraries whose path needs to be specified, one can do it by editing "Environment Variables" tab:
 For instance, text data "such as in Sentiment analysis app" uses NLTK libraries which can be sepcified as:
-     "Key=NLTK_DATA", "Value=/var/task/nltk_data"
+
+    "Key=NLTK_DATA", "Value=/var/task/nltk_data"
      For "poppler_path" libraries for pdf2image conversion, as done in "resume classification app", we do the following:
      "Key=poppler_path"	 and "Value=/var/task/poppler-utils-0.1.0/bin"
        
